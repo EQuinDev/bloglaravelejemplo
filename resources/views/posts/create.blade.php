@@ -31,7 +31,7 @@
 
         <label>
             Contenido:
-            <textarea name="Content"></textarea>
+            <textarea name="content"></textarea>
         </label>
 
 
