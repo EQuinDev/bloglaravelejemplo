@@ -18,5 +18,20 @@
     <p>
         {{ $post -> content }}
     </p>
+
+    <a href="/laravel/blog/public/posts/{{$post -> id}}/edit">
+        Editar post
+    </a>
+
+    <form action="/laravel/blog/public/posts/{{$post -> id}}" method="POST">
+
+        @csrf
+        @method('DELETE')
+
+        <button type="submit">
+            Eliminar post
+        </button>
+    </form>
+
 </body>
 </html>

@@ -9,7 +9,8 @@ class PostController extends Controller
 {
     public function index()
     {
-        $posts = Post::all();
+        $posts = Post::orderBy('id', 'desc')
+                -> get();
 
         return view('posts.index', compact('posts'));
     }
@@ -39,4 +40,32 @@ class PostController extends Controller
 
         return view('posts.show', compact('post'));
     }
+
+    public function edit($post)
+    {
+        $post = Post::find($post);
+        return view('posts.edit', compact('post'));
+    }
+
+    public function update(Request $request, $post)
+    {
+        $post = Post::find($post);
+
+        $post -> title = $request -> title;
+        $post -> category = $request -> category;
+        $post -> content = $request -> content;
+
+        $post -> save();
+
+        return redirect("/posts/{$post->id}");
+    }
+
+    public function destroy($post)
+    {
+        $post = Post::find($post);
+        $post -> delete();
+
+        return redirect('/posts');
+    }
+
 }
