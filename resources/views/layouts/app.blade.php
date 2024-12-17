@@ -15,13 +15,16 @@
     @stack('css')
 
 </head>
-<body>
+<body class="bg-purple-200">
 
-    <header></header>
+    <div id="app" class="min-h-screen bg-purple-200 text-black">
+        <header></header>
 
-    @yield('content')
+        @yield('content')
 
-    <footer></footer>
+        <footer></footer>
+
+    </div>
 
     @stack('js')
 </body>
